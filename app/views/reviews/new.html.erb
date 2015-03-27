@@ -1,0 +1,22 @@
+<div class="title_header">
+  Review this fine establishment
+</div>
+
+<div class="form">
+  <%= form_for [@restaurant, @review] do |f| %>
+  <div class="reviews panel">
+    <%= f.label :rating %>
+    <% Review::RATINGS.each do |rating| %>
+      <%= f.radio_button(:rating, rating) %>
+      <%= f.label("rating_#{rating}", rating) %>
+    <% end %>
+
+    <div class='body'>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+
+    <%= f.submit "Post Review" %>
+    </div>
+  <% end %>
+</div>

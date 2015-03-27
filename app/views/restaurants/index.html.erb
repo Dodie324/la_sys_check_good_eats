@@ -1,0 +1,23 @@
+<div class="show_name">
+  Restaurants
+</div>
+
+<dl class="sub-nav">
+  <dd><%= link_to 'Add a new restaurant', new_restaurant_path %></dd>
+</dl>
+
+<fieldset>
+  <div class="restaurants">
+  <% @restaurants.each do |restaurant| %>
+    <div class="restaurants panel">
+      <div class="r_name"><%= 'Restaurant: ' %><%= link_to restaurant.name, restaurant_path(restaurant) %></div>
+      <div class="r_add"><%= 'Address: ' %><%= restaurant.address %></div>
+      <div class="r_city"><%= 'City: ' %><%= restaurant.city %></div>
+      <div class="r_state"><%= 'State: ' %><%= restaurant.state %></div>
+      <div class="r_zip"><%= 'Zip Code: ' %><%= restaurant.zipcode %></div>
+      <div class="r_des"><%= 'Description: ' %><%= restaurant.description %></div>
+      <div class="r_cat"><%= 'Category: ' %><%= restaurant.category %></div>
+    </div>
+  <% end %>
+  </div>
+</fieldset>

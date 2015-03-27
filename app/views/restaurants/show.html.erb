@@ -1,0 +1,34 @@
+<div class="show_name">
+  <%= @restaurant.name %>
+</div>
+
+<fieldset>
+<div class="show_description">
+  <p><%= 'Description: ' %><%= @restaurant.description %></p>
+  <p><%= 'Category: ' %><%= @restaurant.category %></p>
+</div>
+
+<div class="show_address">
+  <%= @restaurant.address %>
+  <%= @restaurant.city %><%= ', '%><%= @restaurant.state %><%= '  ' %><%= @restaurant.zipcode %>
+</div>
+
+<div class="write_review">
+  <%= link_to 'Write a Review', new_restaurant_review_path(@restaurant) %>
+</div>
+
+<% if !@review.empty? %>
+  <fieldset>
+    <legend>Reviews</legend>
+      <% @restaurant.reviews.order(created_at: :desc).each do |review| %>
+        <div class="reviews panel">
+          <p><%= 'Rating: '%><%= review.rating %></p>
+          <p><%= review.body %></p>
+          <p><%= review.created_at %></p>
+        </div>
+      <% end %>
+  </fieldset>
+<% end %>
+
+
+
